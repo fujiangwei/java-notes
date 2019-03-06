@@ -27,7 +27,7 @@ public class DateDemo {
     /**
      * 日期格式
      */
-    private final static String PATTERN_1 = "YYYY-MM-DD";
+    private final static String PATTERN_1 = "yyyy-MM-dd";
 
     private final static String PATTERN_2 = "yyyy-MM-dd hh:mm:ss";
 
@@ -35,13 +35,13 @@ public class DateDemo {
 
     public static void main(String[] args) {
 //        clock();
-        localDate();
+//        localDate();
 //        localTime();
 //        localDateTime();
 //        zoneDateTime();
 //        duration();
 //        date2Str();
-//        str2Date();
+        str2Date();
 
 //        System.out.println(date2LocalDateTime());
 //        System.out.println(localDateTime2Date());
@@ -204,6 +204,12 @@ public class DateDemo {
      * 日期字符串转为LocalDateTime格式
      */
     public static void str2Date() {
+
+        String dateStr = "2019-03-06";
+        LocalDate parse = LocalDate.parse(dateStr);
+        System.out.println(parse);
+        LocalDate parse3 = LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(PATTERN_1));
+        System.out.println(parse3);
 
         String dateStr2 = "2019-03-06 12:22:45";
         LocalDateTime parse2 = LocalDateTime.parse(dateStr2, DateTimeFormatter.ofPattern(PATTERN_3));
