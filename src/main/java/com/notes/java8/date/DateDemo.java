@@ -29,8 +29,13 @@ public class DateDemo {
      */
     private final static String PATTERN_1 = "yyyy-MM-dd";
 
+    /**
+     * 小时为0-12
+     */
     private final static String PATTERN_2 = "yyyy-MM-dd hh:mm:ss";
-
+    /**
+     * 小时为0-24
+     */
     private final static String PATTERN_3 = "yyyy-MM-dd HH:mm:ss";
 
     public static void main(String[] args) {
@@ -40,8 +45,8 @@ public class DateDemo {
 //        localDateTime();
 //        zoneDateTime();
 //        duration();
-//        date2Str();
-        str2Date();
+        date2Str();
+//        str2Date();
 
 //        System.out.println(date2LocalDateTime());
 //        System.out.println(localDateTime2Date());
@@ -212,9 +217,13 @@ public class DateDemo {
         System.out.println(parse3);
 
         String dateStr2 = "2019-03-06 12:22:45";
-        LocalDateTime parse2 = LocalDateTime.parse(dateStr2, DateTimeFormatter.ofPattern(PATTERN_3));
+        LocalDateTime parse2 = LocalDateTime.parse(dateStr2, pattern(PATTERN_3));
         System.out.println(parse2);
 
+    }
+
+    public static DateTimeFormatter pattern(String pattern) {
+        return DateTimeFormatter.ofPattern(pattern);
     }
 
     /**
