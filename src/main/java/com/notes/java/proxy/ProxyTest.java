@@ -35,7 +35,7 @@ public class ProxyTest {
         //CGLIB动态代理测试
         CglibMethodInterceptor cmi = new CglibMethodInterceptor(new CglibFruit());
         CglibFruit fruit = (CglibFruit) cmi.getProxyInstance();
-        fruit.name("oringe");
+        fruit.name("orange");
         fruit.price(12.666);
 
     }

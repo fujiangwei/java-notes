@@ -36,6 +36,10 @@ public class CglibMethodInterceptor implements MethodInterceptor {
         return o1;
     }
 
+    /**
+     * 获取代理对象实例，通过Enhancer来指定要代理的目标对象、实际处理代理逻辑的对象，最后通过调用create()方法得到代理对象
+     * @return
+     */
     public Object getProxyInstance() {
         Enhancer enhancer = new Enhancer();
         //设置代理对象字节
