@@ -19,16 +19,16 @@ public class ReflectDemo {
 
     public static void main(String[] args) throws Exception {
 //        //不会触发初始化
-//        Class userClass = User.class;
-//        System.out.println("***********");
+        Class userClass = User.class;
+        System.out.println("***********");
 //        //触发初始化
-//        Class<?> forName = Class.forName("com.notes.java.reflect.domain.User");
-        User user = new User(1, "kinson");
+        Class<?> forName = Class.forName("com.notes.java.reflect.domain.User");
+//        User user = new User(1, "kinson");
 //        className(user);
 //        instance();
 //        constructor(user);
 //        field(user);
-        method(user);
+//        method(user);
     }
 
     public static void instance() throws Exception {

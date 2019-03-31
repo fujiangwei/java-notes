@@ -24,7 +24,8 @@ public class User implements Serializable {
     public String city;
 
     static {
-//        System.out.println("静态代码块" + firstName);
+        //测试不同方式获取Class是否你能触发初始化
+        System.out.println("静态代码块" + firstName);
     }
 
     public User() {
