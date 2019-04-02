@@ -15,11 +15,11 @@ public class Producer2Consumer {
     public static void main(String[] args) throws InterruptedException {
         QueueModel queueModel = new QueueModel();
 
-        Thread pt1 = new Thread(new Producer(queueModel));
+        Thread pt1 = new Thread(new Producer(queueModel), "pt1");
 //        Thread pt2 = new Thread(new Producer(queueModel));
 //        Thread pt3 = new Thread(new Producer(queueModel));
 //        Thread pt4 = new Thread(new Producer(queueModel));
-        Thread ct1 = new Thread(new Consumer(queueModel));
+        Thread ct1 = new Thread(new Consumer(queueModel), "ct1");
         Thread ct2 = new Thread(new Consumer(queueModel));
         Thread ct3 = new Thread(new Consumer(queueModel));
 
@@ -51,6 +51,7 @@ class Producer implements Runnable {
     @Override
     public void run() {
         try {
+            System.out.println("ptName :" + Thread.currentThread().getName());
             queueModel.push();
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,6 +73,7 @@ class Consumer implements Runnable {
     @Override
     public void run() {
         try {
+            System.out.println("ctName :" + Thread.currentThread().getName());
             queueModel.pull();
         } catch (Exception e) {
             e.printStackTrace();

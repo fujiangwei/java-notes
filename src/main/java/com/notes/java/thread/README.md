@@ -57,3 +57,10 @@ wiat()必须放在synchronized block中，否则会在program runtime时扔出�
 lock用synchronize把同步代码包装起来；
 阻塞需要另外一个对象condition；
 同步和唤醒的对象是condition而不是lock，对应的方法是await和signal，而不是wait和notify。
+
+# 好习惯
+
+* 新建线程时给线程加上名字，便于后续定位
+
+    
+    Thread thread = new Thread(myRunnable, "myThread");
