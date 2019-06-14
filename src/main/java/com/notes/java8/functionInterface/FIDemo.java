@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
- * 文件描述 java8基础功能接口demo
+ * 文件描述 java8基础函数接口demo
  **/
 public class FIDemo {
 
