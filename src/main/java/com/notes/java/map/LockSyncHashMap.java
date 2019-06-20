@@ -2,6 +2,7 @@ package com.notes.java.map;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -16,10 +17,12 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockSyncHashMap {
 
     /**
-     *  重入锁
+     * 重入锁
      */
     ReentrantLock lock = new ReentrantLock(Boolean.TRUE);
     Map<String, String> map;
+
+    Lock lock2;
 
     public LockSyncHashMap(Map<String, String> map) {
         this.map = map;
