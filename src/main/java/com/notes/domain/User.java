@@ -26,6 +26,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
+    public User(Integer id, String name, List<String> interests) {
+        this.id = id;
+        this.name = name;
+        this.interests = interests;
+    }
+
     public Integer getId() {
         return id;
     }
