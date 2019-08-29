@@ -1,7 +1,11 @@
 package com.notes.java.proxy;
 
+import com.notes.java.proxy.asm.ASMGenerate;
 import com.notes.java.proxy.cglib.CglibFruit;
 import com.notes.java.proxy.cglib.CglibMethodInterceptor;
+import com.notes.java.proxy.dynamic.Banana;
+import com.notes.java.proxy.dynamic.Fruit;
+import com.notes.java.proxy.dynamic.FruitDynamicProxy;
 
 /**
  * descripiton: 代理测试类
@@ -14,7 +18,7 @@ import com.notes.java.proxy.cglib.CglibMethodInterceptor;
  */
 public class ProxyTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         //静态代理测试
 //        FruitStaticProxy fruitStaticProxy = new FruitStaticProxy();
 //        fruitStaticProxy.name("apple");
@@ -23,7 +27,7 @@ public class ProxyTest {
         //JDK动态代理测试
 //        FruitDynamicProxy fruitDynamicProxy = new FruitDynamicProxy(new Banana());
 //        Fruit banana = (Fruit) fruitDynamicProxy.getProxyInstance();
-        //调用该方法时转到FruitDynamicProxy类的invoke方法
+//        //调用该方法时转到FruitDynamicProxy类的invoke方法
 //        banana.name("banana");
 //        banana.price(12.6);
 
@@ -33,10 +37,12 @@ public class ProxyTest {
 //        apple2.name("apple2");
 
         //CGLIB动态代理测试
-        CglibMethodInterceptor cmi = new CglibMethodInterceptor(new CglibFruit());
-        CglibFruit fruit = (CglibFruit) cmi.getProxyInstance();
-        fruit.name("orange");
-        fruit.price(12.666);
+//        CglibMethodInterceptor cmi = new CglibMethodInterceptor(new CglibFruit());
+//        CglibFruit fruit = (CglibFruit) cmi.getProxyInstance();
+//        fruit.name("orange");
+//        fruit.price(12.666);
+
+        ASMGenerate.generete();
 
     }
 }
