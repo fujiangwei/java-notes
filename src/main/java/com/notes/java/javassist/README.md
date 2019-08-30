@@ -1,5 +1,17 @@
 # javassist
 
+## 
+```text
+Javassist中最为重要的是ClassPool，CtClass ，CtMethod 以及 CtField这几个类。
+ClassPool：一个基于HashMap实现的CtClass对象容器，其中键是类名称，值是表示该类的CtClass对象。默认的ClassPool使用与底层JVM相同的类路径，因此在某些情况下，可能需要向ClassPool添加类路径或类字节。
+
+CtClass： (compile-time class) 表示一个类，这些CtClass对象可以从ClassPool获得。
+
+CtMethods：表示类中的方法。
+
+CtFields ：表示类中的字段。
+```
+
 ## Javassist实现JDK动态代理
    前面简单分析了JDK动态代理的基本原理，其中，最核心的逻辑在于如何生成动态代理类，也就是
    java.lang.reflect.Proxy.newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)方法的实现。
