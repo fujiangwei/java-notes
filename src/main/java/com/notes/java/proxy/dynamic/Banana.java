@@ -3,7 +3,7 @@ package com.notes.java.proxy.dynamic;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/31
  * @time: 19:51
  * @modifier:

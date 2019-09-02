@@ -3,7 +3,7 @@ package com.notes.java.link;
 /**
  * descripiton: 链表
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/10
  * @time: 13:52
  * @modifier:

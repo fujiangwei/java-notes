@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * descripiton: 水果动态代理类,实现接口InvocationHandler，代理对象的所有方法调用都会被转发到该类的invoke()方法。
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/31
  * @time: 19:58
  * @modifier:

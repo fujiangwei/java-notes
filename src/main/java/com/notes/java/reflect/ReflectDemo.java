@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/6
  * @time: 20:34
  * @modifier:
@@ -46,6 +46,7 @@ public class ReflectDemo {
 
     /**
      * 构造器
+     *
      * @param user
      */
     public static void constructor(User user) {

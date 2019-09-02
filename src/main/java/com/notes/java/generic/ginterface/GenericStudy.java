@@ -3,7 +3,7 @@ package com.notes.java.generic.ginterface;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/20
  * @time: 18:22
  * @modifier:
@@ -16,6 +16,6 @@ package com.notes.java.generic.ginterface;
 public class GenericStudy<T> implements GenericInterface<T> {
     @Override
     public T study() {
-        return (T)"Python";
+        return (T) "Python";
     }
 }

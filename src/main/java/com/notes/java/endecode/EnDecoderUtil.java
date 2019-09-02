@@ -37,8 +37,10 @@ public class EnDecoderUtil {
             e.printStackTrace();
         }
     }
+
     /**
      * MD5简单加密
+     *
      * @param content 加密内容
      * @return String
      */
@@ -60,6 +62,7 @@ public class EnDecoderUtil {
 
     /**
      * base64加密
+     *
      * @param content 待加密内容
      * @return byte[]
      */
@@ -69,6 +72,7 @@ public class EnDecoderUtil {
 
     /**
      * base64解密
+     *
      * @param encoderContent 已加密内容
      * @return byte[]
      */
@@ -78,6 +82,7 @@ public class EnDecoderUtil {
 
     /**
      * 根据key生成秘钥
+     *
      * @param key 给定key,要求key至少长度为8个字符
      * @return SecretKey
      */
@@ -96,17 +101,19 @@ public class EnDecoderUtil {
 
     /**
      * DES加密
-     * @param key 秘钥key
+     *
+     * @param key     秘钥key
      * @param content 待加密内容
      * @return byte[]
      */
     public static byte[] DESEncrypt(final String key, final String content) {
-        return processCipher(content.getBytes(), getSecretKey(key), Cipher.ENCRYPT_MODE , ALGORITHM_DES);
+        return processCipher(content.getBytes(), getSecretKey(key), Cipher.ENCRYPT_MODE, ALGORITHM_DES);
     }
 
     /**
      * DES解密
-     * @param key 秘钥key
+     *
+     * @param key            秘钥key
      * @param encoderContent 已加密内容
      * @return byte[]
      */
@@ -116,15 +123,16 @@ public class EnDecoderUtil {
 
     /**
      * 加密/解密处理
-     * @param processData   待处理的数据
-     * @param key   提供的密钥
-     * @param opsMode   工作模式
+     *
+     * @param processData 待处理的数据
+     * @param key         提供的密钥
+     * @param opsMode     工作模式
      * @param algorithm   使用的算法
      * @return byte[]
      */
     private static byte[] processCipher(final byte[] processData, final Key key,
                                         final int opsMode, final String algorithm) {
-        try{
+        try {
             Cipher cipher = Cipher.getInstance(algorithm);
             //初始化
             cipher.init(opsMode, key, secureRandom);
@@ -134,8 +142,10 @@ public class EnDecoderUtil {
         }
         return null;
     }
+
     /**
      * 获取私钥，用于RSA非对称加密.
+     *
      * @return PrivateKey
      */
     public static PrivateKey getPrivateKey() {
@@ -144,6 +154,7 @@ public class EnDecoderUtil {
 
     /**
      * 获取公钥，用于RSA非对称加密.
+     *
      * @return PublicKey
      */
     public static PublicKey getPublicKey() {
@@ -152,6 +163,7 @@ public class EnDecoderUtil {
 
     /**
      * 获取数字签名，用于RSA非对称加密.
+     *
      * @return byte[]
      */
     public static byte[] getSignature(final byte[] encoderContent) {
@@ -168,6 +180,7 @@ public class EnDecoderUtil {
 
     /**
      * 验证数字签名，用于RSA非对称加密.
+     *
      * @return byte[]
      */
     public static boolean verifySignature(final byte[] encoderContent, final byte[] signContent) {
@@ -184,15 +197,17 @@ public class EnDecoderUtil {
 
     /**
      * RSA加密
+     *
      * @param content 待加密内容
      * @return byte[]
      */
     public static byte[] RSAEncrypt(final String content) {
-        return processCipher(content.getBytes(), keyPair.getPrivate(), Cipher.ENCRYPT_MODE , ALGORITHM_RSA);
+        return processCipher(content.getBytes(), keyPair.getPrivate(), Cipher.ENCRYPT_MODE, ALGORITHM_RSA);
     }
 
     /**
      * RSA解密
+     *
      * @param encoderContent 已加密内容
      * @return byte[]
      */
@@ -202,6 +217,7 @@ public class EnDecoderUtil {
 
     /**
      * SHA加密
+     *
      * @param content 待加密内容
      * @return String
      */
@@ -229,12 +245,13 @@ public class EnDecoderUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       return "";
+        return "";
     }
 
     /**
      * HMAC加密
-     * @param key 给定秘钥key
+     *
+     * @param key     给定秘钥key
      * @param content 待加密内容
      * @return String
      */

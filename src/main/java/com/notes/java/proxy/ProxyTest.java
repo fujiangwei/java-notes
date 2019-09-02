@@ -10,7 +10,7 @@ import com.notes.java.proxy.dynamic.FruitDynamicProxy;
 /**
  * descripiton: 代理测试类
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/31
  * @time: 20:09
  * @modifier:
@@ -18,7 +18,7 @@ import com.notes.java.proxy.dynamic.FruitDynamicProxy;
  */
 public class ProxyTest {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         //静态代理测试
 //        FruitStaticProxy fruitStaticProxy = new FruitStaticProxy();
 //        fruitStaticProxy.name("apple");

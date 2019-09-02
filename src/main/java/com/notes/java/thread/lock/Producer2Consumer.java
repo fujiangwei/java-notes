@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * descripiton: 使用lock实现生产者和消费者模式
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/2
  * @time: 20:57
  * @modifier:

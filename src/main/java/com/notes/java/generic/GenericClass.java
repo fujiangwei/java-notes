@@ -3,7 +3,7 @@ package com.notes.java.generic;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/20
  * @time: 17:45
  * @modifier:
@@ -51,6 +51,7 @@ public class GenericClass<T> {
 
     /**
      * 静态泛型方法
+     *
      * @param genericClass
      * @param <T>
      * @return

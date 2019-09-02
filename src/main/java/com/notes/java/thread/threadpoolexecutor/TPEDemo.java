@@ -12,20 +12,20 @@ public class TPEDemo {
     public static void main(String[] args) throws InterruptedException {
         AtomicInteger atomicInteger = new AtomicInteger(1);
         ThreadPoolExecutor threadPoolExecutor1 = new ThreadPoolExecutor(20, 100, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(30));
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 10; i++) {
 //            threadPoolExecutor1.execute(new MyRunnable(atomicInteger, 1000L));
         }
 
         // 拒绝策略
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10), (task, pool) ->
-            System.out.println("系统繁忙，请稍后再试，即线程池已满，处理不了这么多任务")
+                System.out.println("系统繁忙，请稍后再试，即线程池已满，处理不了这么多任务")
         );
         // 1、若当前任务<=核心线程数,则直接使用核心线程进行处理。
         // 2、否则将大于核心线程的任务放入当前队列中（有限队列类型），若队列长度能容纳当前多出的任务数数，则不启用新线程进行处理。
         // 3、若大于核心线程的任务数大于队列容量，则启用新线程来处理多出的任务，当处理任务的活跃线程总数大于最大线程数时，则抛出异常。
         // 4、当大于核心线程数的线程的存活时间超过设置值时，线程池将会恢复到核心线程池数。
 
-        for (int i = 0; i < 16; i ++) {
+        for (int i = 0; i < 16; i++) {
 //            threadPoolExecutor.execute(new MyRunnable(atomicInteger, 1000L));
         }
 //        printExecutorInfo(threadPoolExecutor);
@@ -126,7 +126,7 @@ public class TPEDemo {
     }
 
     private static void execute(ThreadPoolExecutor executor, int size, AtomicInteger atomicInteger, Long sleepTime) {
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             executor.execute(new MyRunnable(atomicInteger, sleepTime));
         }
     }

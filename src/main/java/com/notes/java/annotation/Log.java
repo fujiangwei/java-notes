@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/31
  * @time: 23:48
  * @modifier:

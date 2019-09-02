@@ -5,10 +5,11 @@ import java.util.concurrent.RecursiveTask;
 /**
  * 文件描述 sum求和
  **/
-public class SumTask2 extends RecursiveTask <Integer>{
+public class SumTask2 extends RecursiveTask<Integer> {
     private static final Integer THRESHOLD = 1000;
     private int start;
     private int end;
+
     public SumTask2(int start, int end) {
         this.start = start;
         this.end = end;
@@ -18,8 +19,8 @@ public class SumTask2 extends RecursiveTask <Integer>{
     protected Integer compute() {
         Integer sum = 0;
         boolean isOk = end - start <= THRESHOLD;
-        if(isOk) {
-            for(int i = start; i <= end; i ++) {
+        if (isOk) {
+            for (int i = start; i <= end; i++) {
                 sum += i;
             }
 //            System.out.println(String.format("compute %d-%d = %d", start, end, sum));

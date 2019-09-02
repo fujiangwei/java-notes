@@ -3,7 +3,7 @@ package com.notes.java.classloader;
 /**
  * descripiton: 类加载器
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/9
  * @time: 14:04
  * @modifier:

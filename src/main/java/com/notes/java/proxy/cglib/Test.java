@@ -38,7 +38,7 @@ public class Test {
 
         FastClass fastClass = FastClass.create(DelegateClass.class);
         FastClass fastClass2 = FastClass.create(DelegateClass.class);
-        DelegateClass delegateClass1 = (DelegateClass)fastClass.newInstance();
+        DelegateClass delegateClass1 = (DelegateClass) fastClass.newInstance();
         int index = fastClass.getIndex("add", new Class[]{String.class, int.class});
         fastClass.invoke(index, delegateClass1, new Object[]{"Jack", 28});
 

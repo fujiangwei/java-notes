@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * descripiton: 使用Lock所手动实现HashMap同步
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/2
  * @time: 19:00
  * @modifier:

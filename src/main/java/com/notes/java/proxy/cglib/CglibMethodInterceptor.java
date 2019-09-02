@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * 代理对象的所有非final方法调用会被转发到该类的intercept()方法。
  * 在需要使用Fruit的时候，通过CGLIB动态代理获取代理对象。
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/31
  * @time: 21:00
  * @modifier:
@@ -38,6 +38,7 @@ public class CglibMethodInterceptor implements MethodInterceptor {
 
     /**
      * 获取代理对象实例，通过Enhancer来指定要代理的目标对象、实际处理代理逻辑的对象，最后通过调用create()方法得到代理对象
+     *
      * @return
      */
     public Object getProxyInstance() {

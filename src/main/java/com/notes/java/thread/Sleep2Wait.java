@@ -3,7 +3,7 @@ package com.notes.java.thread;
 /**
  * descripiton: sleep和wait
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/2
  * @time: 20:16
  * @modifier:

@@ -3,7 +3,7 @@ package com.notes.java.proxy.cglib;
 /**
  * descripiton: 水果类，该类没有实现接口，故无法使用JDK代理，可通过CGLIB代理
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/31
  * @time: 20:58
  * @modifier:
