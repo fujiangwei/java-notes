@@ -17,6 +17,7 @@ public class ResultHandle {
     private HandleContext handleContext;
 
     private static Map<String, CommonHandle> handleMap = new HashMap<String, CommonHandle>(5);
+
     static {
         handleMap.put(ZD_UNIVERSE, new ZDHandle());
         handleMap.put(FD_UNIVERSE, new FDHandle());

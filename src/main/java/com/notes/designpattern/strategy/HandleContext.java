@@ -11,7 +11,7 @@ public class HandleContext {
         this.commonHandle = commonHandle;
     }
 
-    public String handle(String curType){
+    public String handle(String curType) {
         return this.commonHandle.handle(curType);
     }
 }

@@ -3,7 +3,7 @@ package com.notes.java8.lambda;
 /**
  * 文件描述,测试继承及实现具有相同默认方法的父类或接口问题
  **/
-public class C extends D implements A, B{
+public class C extends D implements A, B {
 
     @Override
     public String hi() {

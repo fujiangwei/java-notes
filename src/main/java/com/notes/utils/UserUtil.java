@@ -12,7 +12,6 @@ import java.util.List;
 public class UserUtil {
 
     /**
-     *
      * @return List<User>
      */
     public static List<User> getUsers(int num) {

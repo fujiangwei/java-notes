@@ -25,12 +25,16 @@ public class LambdaDemo {
 
         //入参为空
         TestDemo no_param = () -> "hi, no param";
-        TestDemo no_param2 = () -> { return "hi, no param"; };
+        TestDemo no_param2 = () -> {
+            return "hi, no param";
+        };
         System.out.println(no_param.hi());
 
         //单个参数
         TestDemo2 param = name -> name;
-        TestDemo2 param2 = name -> { return name;};
+        TestDemo2 param2 = name -> {
+            return name;
+        };
         System.out.println(param.hei("hei, grils"));
 
         //多个参数

@@ -7,7 +7,7 @@ import org.springframework.util.StopWatch;
  **/
 public class StopWatchUtil {
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
 
         StopWatch stopWatch = new StopWatch("任务耗时秒表工具");
 

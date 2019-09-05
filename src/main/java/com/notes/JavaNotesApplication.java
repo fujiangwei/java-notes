@@ -8,8 +8,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 //@ServletComponentScan(basePackages = {"com.notes.spring.filter"})
 public class JavaNotesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(JavaNotesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(JavaNotesApplication.class, args);
+    }
 
 }

@@ -15,7 +15,8 @@ public class User implements Serializable {
 
     private List<String> interests;
 
-    public User(){}
+    public User() {
+    }
 
     public User(Integer id) {
         this.id = id;

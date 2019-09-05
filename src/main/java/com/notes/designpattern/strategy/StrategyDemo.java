@@ -56,14 +56,15 @@ public class StrategyDemo {
 
     /**
      * switch 模式
+     *
      * @param type
      * @return
      */
     public static String handle(String type) {
         switch (type) {
-            case ZD_UNIVERSE :
+            case ZD_UNIVERSE:
                 return ZD_UNIVERSE;
-            case ZY_UNIVERSE :
+            case ZY_UNIVERSE:
                 return ZY_UNIVERSE;
             default:
                 return BD_UNIVERSE;

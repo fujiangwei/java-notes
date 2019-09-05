@@ -3,7 +3,7 @@ package com.notes.designpattern.singleton;
 /**
  * descripiton: 兼顾线程安全和效率的写法
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/2
  * @time: 22:23
  * @modifier:

@@ -45,17 +45,17 @@ public class MyFilter implements Filter {
     }
 
     private boolean filterResUrl(String url) {
-        String[] urls = {"/login","/json",".js",".css",".ico",".jpg",".png"};
+        String[] urls = {"/login", "/json", ".js", ".css", ".ico", ".jpg", ".png"};
         if (StringUtils.isEmpty(url)) {
-             return Boolean.FALSE;
+            return Boolean.FALSE;
         }
 
         boolean result = Boolean.FALSE;
-        for (int i = 0; i < urls.length; i ++) {
-             if (url.indexOf(urls[i]) != -1) {
-                 result= Boolean.TRUE;
-                 break;
-             }
+        for (int i = 0; i < urls.length; i++) {
+            if (url.indexOf(urls[i]) != -1) {
+                result = Boolean.TRUE;
+                break;
+            }
         }
 
         return result;

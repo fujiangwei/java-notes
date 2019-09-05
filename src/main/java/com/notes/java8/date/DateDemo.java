@@ -9,14 +9,14 @@ import java.util.TimeZone;
 /**
  * descripiton:
  * 最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
-    SQL -> Java
-    --------------------------
-    date -> LocalDate
-    time -> LocalTime
-    timestamp -> LocalDateTime
-    再也不会出现映射到java.util.Date其中日期或时间某些部分为0的情况了。
+ * SQL -> Java
+ * --------------------------
+ * date -> LocalDate
+ * time -> LocalTime
+ * timestamp -> LocalDateTime
+ * 再也不会出现映射到java.util.Date其中日期或时间某些部分为0的情况了。
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/6
  * @time: 10:48
  * @modifier:
@@ -228,6 +228,7 @@ public class DateDemo {
 
     /**
      * Date转换为LocalDateTime
+     *
      * @return LocalDateTime
      */
     public static LocalDateTime date2LocalDateTime() {
@@ -239,6 +240,7 @@ public class DateDemo {
 
     /**
      * LocalDateTime转换为Date
+     *
      * @return Date
      */
     public static Date localDateTime2Date() {
@@ -252,6 +254,7 @@ public class DateDemo {
 
     /**
      * LocalDateTime转换为LocalDate
+     *
      * @return LocalDate
      */
     public static LocalDate localDateTime2LocalDate() {
@@ -263,6 +266,7 @@ public class DateDemo {
 
     /**
      * LocalDateTime转换为LocalTime
+     *
      * @return LocalTime
      */
     public static LocalTime localDateTime2LocalTime() {
@@ -274,6 +278,7 @@ public class DateDemo {
 
     /**
      * LocalDate转换为Date
+     *
      * @return Date
      */
     public static Date localDate2Date() {

@@ -29,7 +29,7 @@ public class StreamDemo {
             }
         });
         //  lambda写法
-        Stream<Double> generateB = Stream.generate(()-> java.lang.Math.random());
+        Stream<Double> generateB = Stream.generate(() -> java.lang.Math.random());
         Stream<Double> generateC = Stream.generate(java.lang.Math::random);
 
         // 3、iterate方法，返回的也是一个无限长度的Stream，与generate方法不同的是，其是通过函数f迭代对给指定的元素种子而产生无限连续有序Stream，其中包含的元素可以认为是：seed，f(seed),f(f(seed))无限循环
@@ -53,10 +53,10 @@ public class StreamDemo {
                 .forEach(integer -> System.out.print(integer + "  "));
 
         //distinct 去除掉原Stream中重复的元素，生成的新Stream中没有没有重复的元素。
-        Stream.of(1,1,3,4,3).distinct().forEach(System.out::println);
+        Stream.of(1, 1, 3, 4, 3).distinct().forEach(System.out::println);
 
         //filter 对原Stream按照指定条件过滤，过滤出满足条件的元素。
-        Stream.of(1,1,3,4,3).filter(x -> x > 2).forEach(System.out::println);
+        Stream.of(1, 1, 3, 4, 3).filter(x -> x > 2).forEach(System.out::println);
 
         //map方法将对于Stream中包含的元素使用给定的转换函数进行转换操作，新生成的Stream只包含转换生成的元素。
         //为了提高处理效率，官方已封装好了，三种变形：mapToDouble，mapToInt，mapToLong，将原Stream中的数据类型，转换为double,int或者long类型。
@@ -118,9 +118,9 @@ public class StreamDemo {
 
         // forEachOrdered 与forEach类似，都是遍历Stream中的所有元素，
         // 不同的是，如果该Stream预先设定了顺序，会按照预先设定的顺序执行（Stream是无序的），默认为元素插入的顺序。
-        Stream.of(5,2,1,4,3)
+        Stream.of(5, 2, 1, 4, 3)
                 .forEachOrdered(integer ->
-                    System.out.println("integer:" + integer)
+                        System.out.println("integer:" + integer)
                 );
 
         // max 根据指定的Comparator，返回一个Optional，该Optional中的value值就是Stream中最大的元素。
@@ -224,7 +224,7 @@ public class StreamDemo {
 
         Long counting = Stream.of(1, 2, 3, 4)
                 .collect(Collectors.counting());
-        System.out.println("counting:" +counting);
+        System.out.println("counting:" + counting);
 
         //分割数据块
         Map<Boolean, List<Integer>> partitioningBy = Stream.of(1, 2, 3, 4, 5)
@@ -242,6 +242,7 @@ public class StreamDemo {
         //partitioningBy : {false=[1, 2, 3], true=[4, 5]}
         System.out.println("groupingBy : " + groupingBy);
 
+        //字符串
         String joining = Stream.of("a", "b", "c", "d")
                 .collect(Collectors.joining(","));
         System.out.println(joining);

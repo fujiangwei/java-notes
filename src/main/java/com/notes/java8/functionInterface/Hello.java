@@ -2,7 +2,7 @@ package com.notes.java8.functionInterface;
 
 /**
  * 文件描述 函数式接口:
- *      有且仅有一个抽象方法，但是可以有多个非抽象方法的接口。
+ * 有且仅有一个抽象方法，但是可以有多个非抽象方法的接口。
  **/
 @FunctionalInterface
 public interface Hello {
@@ -15,7 +15,7 @@ public interface Hello {
     /**
      * 允许定义默认方法
      */
-    default void hi(){
+    default void hi() {
         System.out.println("this is default method");
     }
 
