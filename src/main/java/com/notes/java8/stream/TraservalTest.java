@@ -50,9 +50,9 @@ public class TraservalTest {
     }
 
     private String start(String flag) {
-//        StopWatch stopWatch = new StopWatch("test");
-//        stopWatch.start();
-        long start = System.currentTimeMillis();
+        StopWatch stopWatch = new StopWatch("test");
+        stopWatch.start();
+//        long start = System.currentTimeMillis();
         if (StringUtils.equals("for", flag)) {
             for (int i = 0; i < dataList.size(); i ++) {
                 forList.add(dataList.get(i));
@@ -72,11 +72,12 @@ public class TraservalTest {
                     .map(x -> x).collect(Collectors.toList());
         }
 
-//        stopWatch.stop();
+        stopWatch.stop();
 //        System.out.println(flag + "耗时：" + stopWatch.getTotalTimeMillis());
-        Long time = System.currentTimeMillis() - start;
-//        System.out.println(flag + "耗时：" + time);
-        return flag + ":" + time;
+        return flag + ":" + stopWatch.getTotalTimeMillis();
+//        Long time = System.currentTimeMillis() - start;
+////        System.out.println(flag + "耗时：" + time);
+//        return flag + ":" + time;
     }
 
     @Test
