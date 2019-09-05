@@ -1,11 +1,15 @@
 package com.notes.domain;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * 文件描述
  **/
+@Data
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

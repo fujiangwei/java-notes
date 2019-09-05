@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.notes.domain.User;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.Assert;
 
@@ -79,6 +80,9 @@ public class GuavaTest {
             System.out.println("xxx不能null");
         }
 //        Assert.notNull(user, "xxx不能null");
+
+        CollectionUtils.isNotEmpty(strList);
+        CollectionUtils.isEmpty(strList);
 
         Assert.isTrue(StringUtils.isNotEmpty(""), "xxx不能为空");
     }
