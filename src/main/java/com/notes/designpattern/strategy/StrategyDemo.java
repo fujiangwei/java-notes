@@ -1,7 +1,5 @@
 package com.notes.designpattern.strategy;
 
-import com.notes.java8.stream.ReqParamDTO;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -37,21 +35,6 @@ public class StrategyDemo {
 
         Map<String, String> map = new HashMap<String, String>();
 
-//        map.put("1", "!");
-//        System.out.println(map.get("2"));
-
-        ReqParamDTO reqParamDTO = new ReqParamDTO();
-        Map<String, Object> reqParamMap = new HashMap<String, Object>(5);
-        reqParamDTO.setReqParamMap(reqParamMap);
-
-        test(reqParamDTO);
-        System.out.println(reqParamMap.get("12"));
-    }
-
-    public static void test(ReqParamDTO reqParamDTO) {
-        Map<String, Object> reqParamMap = reqParamDTO.getReqParamMap();
-        reqParamMap.put("1", 111);
-        reqParamMap.put("12", 1212);
     }
 
     /**

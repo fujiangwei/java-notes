@@ -37,27 +37,27 @@ public class User implements Serializable {
         this.interests = interests;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<String> getInterests() {
-        return interests;
-    }
-
-    public void setInterests(List<String> interests) {
-        this.interests = interests;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public List<String> getInterests() {
+//        return interests;
+//    }
+//
+//    public void setInterests(List<String> interests) {
+//        this.interests = interests;
+//    }
 }

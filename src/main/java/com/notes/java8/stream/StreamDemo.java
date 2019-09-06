@@ -1,10 +1,12 @@
 package com.notes.java8.stream;
 
+import com.google.common.collect.Lists;
 import com.notes.domain.User;
 import com.notes.utils.UserUtil;
 
 import java.util.*;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,7 +15,7 @@ import java.util.stream.Stream;
  **/
 public class StreamDemo {
     public static void main(String[] args) {
-        /*************流的来源*************/
+//        /*************流的来源*************/
         // 1、of方法
         //      of(T... values)：返回含有多个T元素的Stream
         //      of(T t)：返回含有一个T元素的Stream
@@ -251,5 +253,19 @@ public class StreamDemo {
                 .collect(Collectors.joining(",", "[", "]"));
         System.out.println(joining2);
 
+        System.out.println(userList);
+        User uu = new User(1, "kk", Lists.newArrayList("i66"));
+        userList.add(uu);
+
+        // 根据id分组
+        Map<Integer, List<User>> collect3 = userList.stream().collect(Collectors.groupingBy(User::getId));
+        // 将id映射为id集合
+        List<Integer> collect1 = userList.stream().collect(Collectors.mapping(User::getId, Collectors.toList()));
+        // 根据id分组后将interests映射成集合
+        Map<Integer, List<List<String>>> collect2 = userList.stream()
+                .collect(Collectors.groupingBy(User::getId, Collectors.mapping(User::getInterests, Collectors.toList())));
+        System.out.println(collect3);
+        System.out.println(collect1);
+        System.out.println(collect2);
     }
 }
