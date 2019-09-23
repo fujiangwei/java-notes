@@ -1,5 +1,6 @@
 package com.notes.spring.aop.service.impl;
 
+import com.notes.spring.aop.annotation.MyAnno;
 import com.notes.spring.aop.service.UserService;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +23,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    @MyAnno
     public void findUser() {
         System.out.println("find user ......");
     }

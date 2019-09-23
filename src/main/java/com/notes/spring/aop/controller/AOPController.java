@@ -22,6 +22,9 @@ public class AOPController {
 
     @RequestMapping(value = "/addUser")
     public void addUser() {
-        userService.addUser();
+//        userService.addUser();
+        userService.updateUser();
+
+        userService.findUser();
     }
 }
