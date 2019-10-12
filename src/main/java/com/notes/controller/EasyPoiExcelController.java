@@ -6,15 +6,16 @@ import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.google.common.collect.Lists;
 import com.notes.domain.BrandInfo;
-import com.notes.domain.User;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @RestController
@@ -26,8 +27,10 @@ public class EasyPoiExcelController {
     @PostMapping("/importExcel")
     public List<BrandInfo> importExcel(@RequestParam("file") MultipartFile file) throws Exception {
         //导入
+        InputStream inputStream = file.getInputStream();
         List<BrandInfo> BrandInfos = ExcelImportUtil
-                .importExcel(file.getInputStream(), BrandInfo.class, new ImportParams());
+                .importExcel(inputStream, BrandInfo.class, new ImportParams());
+        inputStream.close();
         return BrandInfos;
     }
 
@@ -52,8 +55,9 @@ public class EasyPoiExcelController {
 
             //导出
             Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams(), BrandInfo.class, list);
-            workbook.write(response.getOutputStream());
-
+            ServletOutputStream outputStream = response.getOutputStream();
+            workbook.write(outputStream);
+            outputStream.close();
             log.info("请求 exportExcel end ......");
         } catch (IOException e) {
             log.info("请求 exportExcel 异常：{}", e.getMessage());
