@@ -63,16 +63,14 @@ public class CGPropetiesUtil {
 
     public static void main(String[] args) {
         String name = CGPropetiesUtil.getStringValue("name");
-        System.out.println("name:" + name);
+        System.out.println("String:" + name);
         int port = CGPropetiesUtil.getIntValue("port");
-        System.out.println("port:" + port);
+        System.out.println("int:" + port);
         boolean flag = CGPropetiesUtil.getBooleanValue("flag");
-        System.out.println("flag:" + flag);
-        List<String> users = (List<String>) CGPropetiesUtil.getListValue("users");
+        System.out.println("boolean:" + flag);
+        List<String> users = (List<String>) CGPropetiesUtil.getListValue("interest");
         for (String user : users) {
-            System.out.println("user:" + user);
+            System.out.println("interest:" + user);
         }
-        String hh = CGPropetiesUtil.getStringValue("hh");
-        System.out.println("hh:" + hh);
     }
 }
