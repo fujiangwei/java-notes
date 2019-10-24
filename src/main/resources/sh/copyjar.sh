@@ -9,32 +9,30 @@ then
     exit
 fi
 
-#是否存在依赖清单文件,需要配管出包更新
-if [ ! -f "$3" ];then
-    echo "$3 not existed"
+#是否存在依赖清单文件,需要在服务构建好之后生成
+if [ ! -f "$2" ];then
+    echo "$2 not existed"
     exit
 fi
 
 #删除原先jar目录
-if [ -d "$2" ];then
-    rm -rf $2/*
-    echo "$2 dir's jar rm suc"
+if [ -d "sharedlib" ];then
+    rm -rf sharedlib/*
+    echo "sharedlib dir's jar rm suc"
 else 
-    mkdir $2
-    echo "create $2 suc"
+    mkdir sharedlib
+    echo "create sharedlib suc"
 fi
 
-#fnlist.txt文件行数
-fnlistRow=`wc -l fnlist.txt | awk '{print $1}'`
+#依赖jar清单文件数量
+fnlistRow=`wc -l $2 | awk '{print $1}'`
 echo "共有$fnlistRow个jar"
 if [ $fnlistRow -ge 1 ];then
     while read name
     do
-	#将名字按'/'格式切分区最后一个
 	rname=`echo $name | awk -F "/" '{print $NF}'`
-	#echo $rname
-	cp -rf $1/$rname $2/
-    done < fnlist.txt
+	cp -rf $1/$rname sharedlib/
+    done < $2
 fi
 
 endtime=`date +'%Y-%m-%d %H:%M:%S'`
