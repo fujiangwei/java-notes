@@ -22,20 +22,6 @@ public class CGCommonUtil {
     private static final String SUFFIX_PROPERTIES = ".properties";
     private static final String SUFFIX_XML = ".xml";
 
-    public static String getStringValue(String fileName, String key) {
-        if (!configMap.containsKey(key)) {
-            CGCommonUtil.initConfig(fileName);
-        }
-        if (fileName.endsWith(SUFFIX_PROPERTIES)) {
-            PropertiesConfiguration cfg = (PropertiesConfiguration) configMap.get(fileName);
-            return cfg.getString(key);
-        } else if (fileName.endsWith(SUFFIX_XML)) {
-            XMLConfiguration cfg = (XMLConfiguration) configMap.get(fileName);
-            return cfg.getString(key);
-        }
-        return null;
-    }
-
     public static Configuration getConfig(String fileName) {
         if (!configMap.containsKey(fileName)) {
             CGCommonUtil.initConfig(fileName);
@@ -107,11 +93,6 @@ public class CGCommonUtil {
     }
 
     public static void main(String[] args) {
-        String name= CGCommonUtil.getStringValue("test.properties", "name");
-        System.out.println(name);
-        String url = CGCommonUtil.getStringValue("test.xml", "database.url");
-        System.out.println(url);
-
         Configuration config = getConfig("test.properties");
         String name1 = getStringValue(config, "name");
         System.out.println(name1);
