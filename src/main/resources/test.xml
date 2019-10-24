@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <database>
+        <url>127.0.0.1</url>
+        <port>1521</port>
+        <login>admin</login>
+        <password>admin</password>
+    </database>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<engine-config>
+    <start-criteria>
+        <criteria>
+            Temperature Above -10 Celsius
+        </criteria>
+        <criteria>
+            Fuel tank is not empty
+        </criteria>
+    </start-criteria>
+    <volume>4 Liters</volume>
+    <horsepower>42</horsepower>
+</engine-config>

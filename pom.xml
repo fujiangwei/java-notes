@@ -17,6 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <easypoi.version>3.3.0</easypoi.version>
+        <commons-configuration-version>1.10</commons-configuration-version>
     </properties>
 
     <dependencies>
@@ -90,6 +91,12 @@
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-web</artifactId>
             <version>${easypoi.version}</version>
+        </dependency>
+        <!-- 配置文件读取 -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>${commons-configuration-version}</version>
         </dependency>
     </dependencies>
 
