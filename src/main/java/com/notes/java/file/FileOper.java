@@ -448,14 +448,14 @@ public class FileOper {
      */
     public static String[] listFile(File dir) {
         // 声获字符串赋值为路传入文件的路径
-        String absolutPath = dir.getAbsolutePath();
+        String absolutePath = dir.getAbsolutePath();
         // 文件名数组
         String[] paths = dir.list();
         // 声明字符串数组，长度为传入文件的个数
         String[] files = new String[paths.length];
         // 遍历显示文件绝对路径
         for (int i = 0; i < paths.length; i++) {
-            files[i] = absolutPath + "/" + paths[i];
+            files[i] = absolutePath + "/" + paths[i];
         }
         return files;
     }
