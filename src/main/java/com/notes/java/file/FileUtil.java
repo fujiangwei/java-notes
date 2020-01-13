@@ -24,6 +24,12 @@ public class FileUtil {
 
     public static void main(String[] args) {
 
+        System.out.println("1111 "+ File.separator + " 2222 " + File.pathSeparator);
+
+        String aaa = "X:\\YYYYMMDD";
+        System.out.println(":" + File.separator);
+        String[] split = aaa.split(":" + "\\\\");
+
         FileInputStream fileInputStream = null;
         FileOutputStream fileOutputStream = null;
         try {

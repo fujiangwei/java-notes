@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<configuration status="info" monitorInterval="10">
+    <properties>
+        <!-- 日志存放根目录 -->
+        <property name="LOG_HOME">D:\cache\logs</property>
+        <!-- 文件名配置 -->
+        <property name="FILE_NAME">java-note</property>
+        <property name="PATTERN">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</property>
+    </properties>
+    <Appenders>
+        <!-- 控制台打印 -->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <!--<PatternLayout pattern="%d %-5p [%t] (%F:%L) - %m%n"/>-->
+            <PatternLayout pattern="${PATTERN}"/>
+        </Console>
+
+        <!-- 按天每天备份一个日志 -->
+        <RollingFile name="ManageWebInfo" fileName="${LOG_HOME}/${FILE_NAME}-info.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-info-%d{yyyy-MM-dd}-%i.log.gz">
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY"
+                                 onMismatch="NEUTRAL" />
+                <ThresholdFilter level="info" onMatch="ACCEPT"
+                                 onMismatch="DENY" />
+            </Filters>
+            <PatternLayout pattern="${PATTERN}" />
+        </RollingFile>
+
+        <RollingFile name="ManageWebError" fileName="${LOG_HOME}/${FILE_NAME}-error.log"
+                     filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-error-%d{yyyy-MM-dd}-%i.log.gz">
+            <ThresholdFilter level="ERROR"/>
+            <PatternLayout pattern="${PATTERN}"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="ManageWebInfo"/>
+            <AppenderRef ref="ManageWebError"/>
+        </Root>
+        <Logger name="study" level="WARN">
+            <AppenderRef ref="CONSOLE"/>
+        </Logger>
+    </Loggers>
+</configuration>
