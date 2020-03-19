@@ -1,6 +1,8 @@
 package com.notes.java.thread.lock;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
@@ -10,22 +12,33 @@ public class ReentrantReadWriteLockDemo {
 
     public static void main(String[] args) throws Exception{
         Count count = new Count();
-        CountDownLatch cdl = new CountDownLatch(5);
-        for(int i = 0; i < 5; i ++) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    count.ins();
-                    System.out.println(count.num);
-                    cdl.countDown();
-                }
-            }, "t" + i).start();
+        int countNum = 100000;
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        CountDownLatch cdl = new CountDownLatch(countNum);
+        for(int i = 0; i < countNum; i ++) {
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    count.ins();
+////                    System.out.println(Thread.currentThread().getName() + "---" + count.num);
+//                    cdl.countDown();
+//                }
+//            }, "t" + i).start();
+            executorService.execute(() -> {
+                count.ins();
+//                System.out.println(Thread.currentThread().getName() + "---" + count.num);
+                cdl.countDown();
+            });
 
         }
 
         //主线程等待
         cdl.await();
         System.out.println(">>>>>>>" + count.num);
+        if(!executorService.isShutdown()) {
+            System.out.println("isShutdown ...");
+            executorService.shutdown();
+        }
     }
 
     static class Count{
