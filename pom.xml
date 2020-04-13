@@ -114,15 +114,61 @@
             <artifactId>log4j-web</artifactId>
             <version>${log4j2.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hyperic/sigar -->
+        <!-- 此处使用外部引用 -->
+        <dependency>
+            <groupId>org.hyperic</groupId>
+            <artifactId>sigar</artifactId>
+            <scope>system</scope>
+            <version>1.6.4</version>
+            <systemPath>${project.basedir}/libs/sigar.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>
+        <finalName>java-note</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 将SystemScope配置的依赖打包到构建包中，或者通过配置resource来处理，见下resources配置 -->
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose />
+                        <!-- 将jdk的依赖jar打入项目中，这样项目中使用的jdk的依赖就尅正常使用 -->
+                        <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar;${java.home}/lib/jsse.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
             </plugin>
         </plugins>
+
+        <!--<resources>-->
+            <!--&lt;!&ndash; 将当前libs目录下的所有jar包含到BOOT-INF/lib/目录下 &ndash;&gt;-->
+            <!--<resource>-->
+                <!--<directory>libs</directory>-->
+                <!--<targetPath>BOOT-INF/lib/</targetPath>-->
+                <!--<includes>-->
+                    <!--<include>**/*.jar</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+            <!--&lt;!&ndash; 将src/main/resources目录下的文件包含到BOOT-INF/classes/目录下 &ndash;&gt;-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<targetPath>BOOT-INF/classes/</targetPath>-->
+            <!--</resource>-->
+        <!--</resources>-->
     </build>
 
 </project>
