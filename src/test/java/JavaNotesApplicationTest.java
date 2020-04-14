@@ -1,5 +1,6 @@
 import com.notes.JavaNotesApplication;
 import com.notes.service.UserService;
+import com.notes.utils.RedisDistributeLock;
 import com.notes.utils.SpringContextUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,9 @@ public class JavaNotesApplicationTest {
     @Autowired
     UserService userService;
 
+    @Autowired
+    private RedisDistributeLock redisDistributeLock;
+
     @Test
     public void test() {
         // 通过SpringContextUtil获取上下文内容（即spring托管的）
@@ -24,5 +28,22 @@ public class JavaNotesApplicationTest {
         UserService userService3 = SpringContextUtil.getBean("userService", UserService.class);
         UserService userService4 = SpringContextUtil.getBean(UserService.class);
         System.out.println(userService2.getUser() + userService3.getUser() + userService4.getUser());
+    }
+
+    @Test
+    public void redisDistributeLockTest() {
+        boolean tryLock = redisDistributeLock.tryLock();
+        if (tryLock) {
+            System.out.println("获取锁成功");
+        } else {
+            System.out.println("获取锁失败");
+        }
+
+        boolean releaseLock = redisDistributeLock.releaseLock();
+        if (releaseLock) {
+            System.out.println("释放锁成功");
+        } else {
+            System.out.println("释放锁失败");
+        }
     }
 }
