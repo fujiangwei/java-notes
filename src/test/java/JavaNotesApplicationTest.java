@@ -69,19 +69,25 @@ public class JavaNotesApplicationTest {
 
     @Test
     public void zkDistributeLockTest() {
-        ZKDistributeLock zkDistributeLock = new ZKDistributeLock("zk_distribute_lock");
-        boolean tryLock = zkDistributeLock.tryLock("");
-        if (tryLock) {
-            System.out.println("获取锁成功");
-        } else {
-            System.out.println("获取锁失败");
-        }
-
-        boolean releaseLock = zkDistributeLock.releaseLock("");
-        if (releaseLock) {
-            System.out.println("释放锁成功");
-        } else {
-            System.out.println("释放锁失败");
+        int count = 10;
+        CountDownLatch countDownLatch = new CountDownLatch(count);
+        try {
+            for (int i = 0; i < count; i ++) {
+                new Thread(() -> {
+                    ZKDistributeLock zkDistributeLock = new ZKDistributeLock("zk_distribute_lock");
+                    boolean tryLock = zkDistributeLock.tryLock("zk_distribute_lock");
+                    try {
+                        Thread.sleep(RandomUtils.nextInt(2000, 5000));
+                        boolean releaseLock = zkDistributeLock.releaseLock("zk_distribute_lock");
+                        countDownLatch.countDown();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }, "lock" + i).start();
+            }
+            countDownLatch.await();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
