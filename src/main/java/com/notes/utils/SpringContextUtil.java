@@ -22,8 +22,10 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @throws BeansException  
      */
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException{
-        SpringContextUtil.applicationContext = applicationContext;
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if (null == SpringContextUtil.applicationContext) {
+            SpringContextUtil.applicationContext = applicationContext;
+        }
     }
 
     /**  
@@ -44,6 +46,16 @@ public class SpringContextUtil implements ApplicationContextAware {
     }
 
     /**  
+     * 获取对象     
+     * @param requiredType  
+     * @return Object 一个以所给名字注册的bean的实例  
+     * @throws BeansException  
+     */
+    public static <T>T getBean(Class<T> requiredType) throws BeansException {
+        return applicationContext.getBean(requiredType);
+    }
+
+    /**  
      * 获取类型为requiredType的对象  
      * 如果bean不能被类型转换，相应的异常将会被抛出（BeanNotOfRequiredTypeException）  
      * @param name       bean注册名  
@@ -51,8 +63,8 @@ public class SpringContextUtil implements ApplicationContextAware {
      * @return Object 返回requiredType类型对象  
      * @throws BeansException  
      */
-    public static <T>T getBean(String name, Class requiredType) throws BeansException {
-        return (T)applicationContext.getBean(name, requiredType);
+    public static <T>T getBean(String name, Class<T> requiredType) throws BeansException {
+        return applicationContext.getBean(name, requiredType);
     }
 
     /**  
