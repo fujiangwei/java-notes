@@ -20,8 +20,9 @@ public class JavaNotesApplicationTest {
     @Test
     public void test() {
         // 通过SpringContextUtil获取上下文内容（即spring托管的）
-//        UserService userService = (UserService) SpringContextUtil.getBean("userService");
-        System.out.println(userService.getUser());
-        System.out.println("yes");
+        UserService userService2 = SpringContextUtil.getBean("userService");
+        UserService userService3 = SpringContextUtil.getBean("userService", UserService.class);
+        UserService userService4 = SpringContextUtil.getBean(UserService.class);
+        System.out.println(userService2.getUser() + userService3.getUser() + userService4.getUser());
     }
 }
