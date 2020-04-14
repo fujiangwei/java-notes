@@ -41,7 +41,7 @@ public class RedisDistributeLock extends AbstractDistributeLock {
     private static final String EXPIRE_TIME = "EX";
 
     @Override
-//    public boolean tryLock() {
+//    public boolean tryLock(String value) {
 //        Jedis jedis = null;
 //        try {
 //            jedis = jedisPool.getResource();
@@ -60,12 +60,12 @@ public class RedisDistributeLock extends AbstractDistributeLock {
 //        }
 //        return false;
 //    }
-    public boolean tryLock() {
+    public boolean tryLock(String value) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             // 1000s
-            String result = jedis.set(LOCKED_KEY, "2020", NX, EXPIRE_TIME, 1000);
+            String result = jedis.set(LOCKED_KEY, value, NX, EXPIRE_TIME, 10000);
             if (StringUtils.equals(LOCKED_SUCCESS, result)) {
                 return true;
             }
@@ -79,7 +79,7 @@ public class RedisDistributeLock extends AbstractDistributeLock {
     }
 
     @Override
-//    public boolean releaseLock() {
+//    public boolean releaseLock(String value) {
 //        Jedis jedis = null;
 //        try {
 //            jedis = jedisPool.getResource();
@@ -96,12 +96,12 @@ public class RedisDistributeLock extends AbstractDistributeLock {
 //        }
 //        return false;
 //    }
-    public boolean releaseLock() {
+    public boolean releaseLock(String value) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             String luaScript = "if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-            Object eval = jedis.eval(luaScript, Lists.newArrayList(LOCKED_KEY), Lists.newArrayList("2020"));
+            Object eval = jedis.eval(luaScript, Lists.newArrayList(LOCKED_KEY), Lists.newArrayList(value));
             if (RELEASE_SUCCESS.equals(eval)) {
                 return true;
             }
