@@ -2,7 +2,7 @@ package com.notes.java.stringpool;
 
 /**
  * 文件描述 String常量池
- *  使用javac编译StringPoolDemo.java生成class文件，再用javap -c -l -v StringPoolDemo.class 生成汇编代码写入到a.log
+ *  使用javac编译StringPoolDemo.java生成class文件，再用javap -c -l -v StringPoolDemo.class > a.log 生成汇编代码写入到a.log
  **/
 public class StringPoolDemo {
 
