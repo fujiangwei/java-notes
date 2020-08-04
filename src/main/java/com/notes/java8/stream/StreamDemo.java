@@ -43,7 +43,7 @@ public class StreamDemo {
         Stream<Object> empty = Stream.empty();
 
         // 5、Collection接口和数组的默认方法
-        String chars[] = new String[]{"a", "b", "c"};
+        String[] chars = new String[]{"a", "b", "c"};
         Arrays.stream(chars).forEach(System.out::println);
 
         List list = Arrays.asList(chars);
@@ -218,6 +218,10 @@ public class StreamDemo {
         userList.add(new User(4, null));
         Map<Integer, String> toMap3 = userList.stream()
                 .collect(HashMap::new, (m, u) -> m.put(u.getId(), u.getName()), HashMap::putAll);
+        toMap3.forEach((k, v) -> System.out.println(k + "-" + v));
+
+        HashMap<Integer, User> collect4 = userList.stream()
+                .collect(HashMap::new, (m, u) -> m.put(u.getId(), u), HashMap::putAll);
         toMap3.forEach((k, v) -> System.out.println(k + "-" + v));
 
         Optional<Integer> maxBy = Stream.of(1, 2, 3, 4)
