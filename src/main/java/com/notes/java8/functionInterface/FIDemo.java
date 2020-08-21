@@ -4,10 +4,7 @@ import com.notes.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 /**
  * 文件描述 java8基础函数接口demo
@@ -41,6 +38,11 @@ public class FIDemo {
 
         boolean test = up.test(user);
         System.out.println(test);
+
+        String fjw = bf.apply(user, "fjw");
+        System.out.println(fjw);
+
+        bc.accept(user, "fjw");
     }
 
     /**
@@ -67,4 +69,14 @@ public class FIDemo {
      * Predicate<T>
      */
     private static Predicate<User> up = u -> !u.getName().isEmpty();
+
+    /**
+     * BiFunction<T, U, R>
+     */
+    private static BiFunction<User, String, String> bf  = (u, name) -> name + " " + u.getName();
+
+    /**
+     * BiConsumer<T, U>
+     */
+    private static BiConsumer<User, String> bc  = (u, name) -> System.out.println(name + " " + u.getName());
 }
