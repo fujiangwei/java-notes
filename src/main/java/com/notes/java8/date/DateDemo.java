@@ -290,4 +290,11 @@ public class DateDemo {
         return date;
     }
 
+    private static long getBetweenDay(LocalDate stratDate, LocalDate endDate) {
+        try {
+            return endDate.toEpochDay() - stratDate.toEpochDay();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 }
