@@ -1,3 +1,19 @@
+# default port
+server:
+  port: 8080
+# active profile
 spring:
   profiles:
-    active: test
+    active: dev
+---
+# prod profile
+server:
+  port: 8081
+spring:
+  profiles: prod
+---
+# test profile
+server:
+  port: 8082
+spring:
+  profiles: test
