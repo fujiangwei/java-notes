@@ -150,10 +150,17 @@
         </dependency>
 
         <!-- junit 多线程测试 -->
+        <!--<dependency>-->
+            <!--<groupId>com.hundsun.futu</groupId>-->
+            <!--<artifactId>GroboUtils-core</artifactId>-->
+            <!--<version>5</version>-->
+        <!--</dependency>-->
+
+        <!--lucene专用于计算堆内存占用大小的工具类-->
         <dependency>
-            <groupId>com.hundsun.futu</groupId>
-            <artifactId>GroboUtils-core</artifactId>
-            <version>5</version>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>4.0.0</version>
         </dependency>
     </dependencies>
 

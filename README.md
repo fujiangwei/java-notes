@@ -26,3 +26,13 @@
  * user.name：用户的账户名称
  * user.home：用户的主目录
  * user.dir：用户的当前工作目录
+ 
+ # springboot 多环境配置文件加载
+ 在日常开发过程中，我们可能会使用多环境模式：开发、测试、生产。此时怎么配置来指定使用对应环境的配置文件呢？
+ springboot支持配置多环境下指定对应的配置文件。
+ 比如application-dev.yaml/application-prod.yaml/application-test.yaml分别为开发、生产、测试对应的配置文件：
+        
+ * application.yaml通过spring.profiles.active: dev来指定默认加载哪一个配置文件。
+ * 使用java -jar启动应用程序时可以使用：java -jar java-note.jar -spring.profiles.active=dev
+ * 虚拟机参数：-Dspring.profiles.active=dev    优先级比配置文件高
+ 
