@@ -1,6 +1,3 @@
-server:
-  port: 8082
-
 spring:
   redis:
     host: localhost
