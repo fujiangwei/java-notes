@@ -140,5 +140,10 @@ Filter是依赖于Servlet容器，属于Servlet规范的一部分，所以它的
     	}
     
     }
+    
+3、或者直接实现Filter接口，并使用@Component注解标注为组件自动注入bean
+
+        @Component
+        public class LoginFilter implements Filter 
   
-3、请求测试看看是否生效  
+4、请求测试看看是否生效  
