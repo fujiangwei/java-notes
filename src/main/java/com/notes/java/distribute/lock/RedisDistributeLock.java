@@ -1,4 +1,4 @@
-package com.notes.utils;
+package com.notes.java.distribute.lock;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-
-import java.util.Set;
 
 /**
  * 文件描述 redis实现分布式锁

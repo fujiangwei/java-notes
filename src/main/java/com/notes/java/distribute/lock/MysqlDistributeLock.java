@@ -1,4 +1,4 @@
-package com.notes.utils;
+package com.notes.java.distribute.lock;
 
 /**
  * 文件描述 Mysql实现分布式锁

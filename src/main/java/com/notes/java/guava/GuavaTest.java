@@ -97,12 +97,12 @@ public class GuavaTest {
         System.out.println(intersectionList.toString());
 
         // 两个集合补集
-        Collection<String> disjunctionList  = CollectionUtils.disjunction(aList, bList);
+        Collection<String> disjunctionList = CollectionUtils.disjunction(aList, bList);
         System.out.println("============ CollectionUtils.disjunction ==============");
         System.out.println(disjunctionList.toString());
 
         // 两个集合相减
-        Collection<String> subtractList  = CollectionUtils.subtract(aList, bList);
+        Collection<String> subtractList = CollectionUtils.subtract(aList, bList);
         System.out.println("============ CollectionUtils.subtract ==============");
         System.out.println(subtractList.toString());
 

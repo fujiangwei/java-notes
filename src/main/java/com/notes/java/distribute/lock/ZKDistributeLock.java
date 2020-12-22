@@ -1,4 +1,4 @@
-package com.notes.utils;
+package com.notes.java.distribute.lock;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -6,7 +6,6 @@ import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -46,7 +45,7 @@ public class ZKDistributeLock extends AbstractDistributeLock {
 
     private static CuratorFramework curatorFramework;
 
-    private static String ZK_URL = "localhost:2181";
+    private static String ZK_URL = "10.20.39.204:2181";
 
     static {
         curatorFramework = CuratorFrameworkFactory.newClient(ZK_URL, new ExponentialBackoffRetry(1000, 3));

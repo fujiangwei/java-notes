@@ -1,9 +1,8 @@
 package com.notes.controller;
 
+import com.notes.domain.MyBean;
 import com.notes.utils.LocalConfigInfoUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,6 +17,8 @@ public class TestController {
 
     @GetMapping(value = "hello")
     public String test() {
+
+        System.out.println("hello");
 
         return "ok";
     }
@@ -92,5 +93,16 @@ public class TestController {
         }
 
         return sb.toString();
+    }
+
+    @PostMapping("/beanSetTest")
+    public String beanSetTest(@RequestBody MyBean bean) {
+        MyBean newBean = new MyBean();
+
+        MyBean newBean2 = new MyBean();
+        newBean2.setBidRatio(bean.getBidRatio());
+        newBean2.setBeginBidDate(newBean.getBeginBidDate());
+
+        return bean.toString() + "\n" + newBean.toString() + "\n" + newBean2.toString();
     }
 }
