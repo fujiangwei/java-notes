@@ -150,11 +150,14 @@
         </dependency>
 
         <!-- junit 多线程测试 -->
-        <!--<dependency>-->
-            <!--<groupId>com.hundsun.futu</groupId>-->
-            <!--<artifactId>GroboUtils-core</artifactId>-->
-            <!--<version>5</version>-->
-        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.groboutils/groboutils-core -->
+        <dependency>
+            <groupId>net.sourceforge.groboutils</groupId>
+            <artifactId>groboutils-core</artifactId>
+            <version>5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/GroboUtils-5-core.jar</systemPath>
+        </dependency>
 
         <!--lucene专用于计算堆内存占用大小的工具类-->
         <dependency>

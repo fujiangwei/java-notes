@@ -1,8 +1,8 @@
 import com.notes.JavaNotesApplication;
+import com.notes.java.distribute.lock.RedisDistributeLock;
+import com.notes.java.distribute.lock.ZKDistributeLock;
 import com.notes.service.UserService;
-import com.notes.utils.RedisDistributeLock;
 import com.notes.utils.SpringContextUtil;
-import com.notes.utils.ZKDistributeLock;
 import net.sourceforge.groboutils.junit.v1.MultiThreadedTestRunner;
 import net.sourceforge.groboutils.junit.v1.TestRunnable;
 import org.apache.commons.lang3.RandomUtils;
